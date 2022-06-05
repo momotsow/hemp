@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from "react";
 import CompanyDetails from './CompanyDetails'
 import Address from './Address'
 import Authorisation from './Authorisation'
@@ -7,97 +7,76 @@ import Documents from './Documents'
 import OfficeOnly from './OfficeOnly'
 import Success from './Success'
 
-export default class Signup extends Component {
+function ApplicationForm() {
+  const [page, setPage] = useState(0);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    nationality: "",
+    other: "",
+  });
 
-  state = {
-    step: 1,
-    email: '',
-    username: '', 
-    password: '',
-    firstName: '',
-    lastName: '',
-    country: '',
-    levelOfEducation: '',
-  }
+  const FormTitles = ["Sign Up", "Personal Info", "Other", "contact", "Document", "Office Only", "Success"];
 
-  // go back to previous step
-  prevStep = () => {
-    const { step } = this.state;
-    this.setState({ step: step - 1 });
-  }
-
-  // proceed to the next step
-  nextStep = () => {
-    const { step } = this.state;
-    this.setState({ step: step + 1 });
-  }
-
-  // Handle fields change
-  handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
-  }
-
-  render() {
-    const { step } = this.state;
-    const { email, username, password, firstName, lastName, country, levelOfEducation } = this.state;
-    const values = { email, username, password, firstName, lastName, country, levelOfEducation }
-    
-    switch(step) {
-      case 1: 
-        return (
-          <CompanyDetails
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            values={ values }
-          />
-        )
-      case 2: 
-        return (
-          <Address 
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            values={ values }
-          />
-        )
-      case 3: 
-          return (
-            <Contact
-              prevStep={ this.prevStep }
-              nextStep={ this.nextStep }
-              values={ values }
-            />
-          )
-        case 4: 
-        return (
-        <Documents
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            values={ values }
-        />
-        )
-        case 5: 
-        return (
-        <Authorisation
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            values={ values }
-        />
-        )
-        case 4: 
-        return (
-        <OfficeOnly
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            values={ values }
-        />
-        )
-        case 8: 
-          return (
-            <Success />
-          )
-      default: 
-          // do nothing
+  const PageDisplay = () => {
+    if (page === 0) {
+      return <CompanyDetails formData={formData} setFormData={setFormData} />;
+    } else if (page === 1) {
+      return <Address formData={formData} setFormData={setFormData} />;
+    } else if (page === 2) {
+      return <Contact formData={formData} setFormData={setFormData} />;
+    } else if (page === 3) {
+      return <Authorisation formData={formData} setFormData={setFormData} />;
+    } else if (page === 4) {
+      return <Documents formData={formData} setFormData={setFormData} />;
+    } else if (page === 5) {
+      return <OfficeOnly formData={formData} setFormData={setFormData} />;
+    } else {
+      return <Success formData={formData} setFormData={setFormData} />;
     }
-  }
+  };
+
+  return (
+    <div className="form">
+      <div className="progressbar">
+        <div
+          style={{ width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%" }}
+        ></div>
+      </div>
+      <div className="form-container">
+        <div className="header">
+          <h1>{FormTitles[page]}</h1>
+        </div>
+        <div className="body">{PageDisplay()}</div>
+        <div className="footer">
+          <button
+            disabled={page == 0}
+            onClick={() => {
+              setPage((currPage) => currPage - 1);
+            }}
+          >
+            Prev
+          </button>
+          <button
+            onClick={() => {
+              if (page === FormTitles.length - 1) {
+                alert("FORM SUBMITTED");
+                console.log(formData);
+              } else {
+                setPage((currPage) => currPage + 1);
+              }
+            }}
+          >
+            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+export default ApplicationForm;
