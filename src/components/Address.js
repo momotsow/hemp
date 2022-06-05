@@ -5,29 +5,69 @@ function Address ({ formData, setFormData }) {
     <div className="sign-up-container">
       <input
         type="text"
-        placeholder="Email..."
-        value={formData.email}
+        placeholder="Postal Address..."
+        value={formData.postalAddress1}
         onChange={(event) =>
-          setFormData({ ...formData, email: event.target.value })
+          setFormData({ ...formData, postalAddress1: event.target.value })
         }
       />
       <input
         type="text"
-        placeholder="Password..."
-        value={formData.password}
+        placeholder="Surburb..."
+        value={formData.surburb1}
         onChange={(event) =>
-          setFormData({ ...formData, password: event.target.value })
+          setFormData({ ...formData, surburb1: event.target.value })
         }
       />
       <input
         type="text"
-        placeholder="Confirm Password..."
-        value={formData.confirmPassword}
+        placeholder="Town..."
+        value={formData.town1}
         onChange={(event) =>
-          setFormData({ ...formData, confirmPassword: event.target.value })
+          setFormData({ ...formData, town1: event.target.value })
         }
       />
-    </div>
+      <input
+        type="text"
+        placeholder="Postal Code..."
+        value={formData.postalCode1}
+        onChange={(event) =>
+          setFormData({ ...formData, postalCode1: event.target.value })
+        }
+      />
+      <input
+      type="text"
+      placeholder="Postal Address..."
+      value={formData.postalAddress}
+      onChange={(event) =>
+        setFormData({ ...formData, postalAddress: event.target.value })
+      }
+      />
+      <input
+      type="text"
+      placeholder="Surburb..."
+      value={formData.surburb}
+      onChange={(event) =>
+        setFormData({ ...formData, surburb: event.target.value })
+      }
+      />
+      <input
+      type="text"
+      placeholder="Town..."
+      value={formData.town}
+      onChange={(event) =>
+        setFormData({ ...formData, town: event.target.value })
+      }
+      />
+      <input
+      type="text"
+      placeholder="Postal Code..."
+      value={formData.postalCode}
+      onChange={(event) =>
+        setFormData({ ...formData, postalCode: event.target.value })
+      }
+      />
+</div>
   );
 }
 

@@ -5,26 +5,26 @@ function CompanyDetails ({ formData, setFormData }) {
     <div className="personal-info-container">
       <input
         type="text"
-        placeholder="First Name..."
-        value={formData.firstName}
+        placeholder="Company Name..."
+        value={formData.companyName}
         onChange={(e) => {
-          setFormData({ ...formData, firstName: e.target.value });
+          setFormData({ ...formData, companyName: e.target.value });
         }}
       />
       <input
         type="text"
-        placeholder="Last Name..."
-        value={formData.lastName}
+        placeholder="Full Name of CEO..."
+        value={formData.ceoName}
         onChange={(e) => {
-          setFormData({ ...formData, lastName: e.target.value });
+          setFormData({ ...formData, ceoName: e.target.value });
         }}
       />
       <input
         type="text"
-        placeholder="Username..."
-        value={formData.username}
+        placeholder="Contact Person..."
+        value={formData.contactPerson}
         onChange={(e) => {
-          setFormData({ ...formData, username: e.target.value });
+          setFormData({ ...formData, contactPerson: e.target.value });
         }}
       />
     </div>

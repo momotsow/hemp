@@ -10,13 +10,17 @@ import Success from './Success'
 function ApplicationForm() {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-    firstName: "",
-    lastName: "",
-    username: "",
-    nationality: "",
+    companyName: "",
+    ceoName: "",
+    contactPerson: "",
+    postalAddress1: "",
+    surburb1: "",
+    town1: "",
+    postalCode1: "",
+    postalAddress: "",
+    surburb: "",
+    town: "",
+    postalCode: "",
     other: "",
   });
 
