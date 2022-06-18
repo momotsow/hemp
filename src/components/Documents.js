@@ -4,29 +4,22 @@ function Documents ({ formData, setFormData }) {
   return (
     <div className="sign-up-container">
       <input
-        type="text"
-        placeholder="Email..."
-        value={formData.email}
+        type="file"
+        placeholder="Upload DAFF Registration Certificate..."
+        value={formData.daff}
         onChange={(event) =>
-          setFormData({ ...formData, email: event.target.value })
+          setFormData({ ...formData, daff: event.target.value })
         }
       />
       <input
-        type="text"
-        placeholder="Password..."
-        value={formData.password}
+        type="file"
+        placeholder="Upload company CIPC..."
+        value={formData.cipc}
         onChange={(event) =>
-          setFormData({ ...formData, password: event.target.value })
+          setFormData({ ...formData, cipc: event.target.value })
         }
       />
-      <input
-        type="text"
-        placeholder="Confirm Password..."
-        value={formData.confirmPassword}
-        onChange={(event) =>
-          setFormData({ ...formData, confirmPassword: event.target.value })
-        }
-      />
+      
     </div>
   );
 }

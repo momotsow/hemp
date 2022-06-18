@@ -5,6 +5,22 @@ function Contact ({ formData, setFormData }) {
     <div className="sign-up-container">
       <input
         type="text"
+        placeholder="Tel No..."
+        value={formData.telNo}
+        onChange={(event) =>
+          setFormData({ ...formData, telNo: event.target.value })
+        }
+      />
+      <input
+        type="text"
+        placeholder="Cell No..."
+        value={formData.cellNo}
+        onChange={(event) =>
+          setFormData({ ...formData, cellNo: event.target.value })
+        }
+      />
+      <input
+        type="text"
         placeholder="Email..."
         value={formData.email}
         onChange={(event) =>
@@ -13,18 +29,26 @@ function Contact ({ formData, setFormData }) {
       />
       <input
         type="text"
-        placeholder="Password..."
-        value={formData.password}
+        placeholder="Website..."
+        value={formData.website}
         onChange={(event) =>
-          setFormData({ ...formData, password: event.target.value })
+          setFormData({ ...formData, website: event.target.value })
         }
       />
       <input
         type="text"
-        placeholder="Confirm Password..."
-        value={formData.confirmPassword}
+        placeholder="FAX No..."
+        value={formData.faxno}
         onChange={(event) =>
-          setFormData({ ...formData, confirmPassword: event.target.value })
+          setFormData({ ...formData, faxno: event.target.value })
+        }
+      />
+      <input
+        type="text"
+        placeholder="VAT No..."
+        value={formData.vatno}
+        onChange={(event) =>
+          setFormData({ ...formData, vatno: event.target.value })
         }
       />
     </div>

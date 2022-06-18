@@ -21,7 +21,14 @@ function ApplicationForm() {
     surburb: "",
     town: "",
     postalCode: "",
-    other: "",
+    telNo: "",
+    cellNo: "",
+    email: "",
+    website: "",
+    faxno: "",
+    vatno: "",
+    daff: "",
+    cipc: "",
   });
 
   const FormTitles = ["Sign Up", "Personal Info", "Other", "contact", "Document", "Office Only", "Success"];
